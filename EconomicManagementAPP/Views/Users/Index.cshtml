@@ -8,10 +8,10 @@
 <br />
 <br />
 <div style="text-align: right">
-  <a asp-action="Create" class="btn btn-secondary mb-3">Create User</a>
+ <a asp-action="Create" class="btn btn-secondary mb-3">Create User</a>
 </div>
 
-<table class="table">
+<table class="table table-info">
   <thead>
     <tr>
       <th>Emails</th>
@@ -22,7 +22,7 @@
     @foreach (var users in Model) 
     {
     <tr>
-      <td>@users.Email</td>
+      <td class="table-info">@users.Email</td>
       <td>
         <div style="text-align: right">
           <input type="hidden" value="@users.Id" class="ids" />

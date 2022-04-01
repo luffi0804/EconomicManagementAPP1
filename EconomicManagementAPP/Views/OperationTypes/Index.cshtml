@@ -11,7 +11,7 @@
     <a asp-action="Create" class="btn btn-secondary mb-3">Create Operation Types</a>
 </div>
 
-<table class="table">
+<table class="table table-info">
     <thead>
         <tr>
             <th>Operation Types</th>
@@ -22,7 +22,7 @@
         @foreach (var operationTypes in Model)
         {
             <tr>
-                <td>@operationTypes.Description</td>
+                <td class="table-info">@operationTypes.Description</td>
                 <td>
                     <div style="text-align: right">
                         <input type="hidden" value="@operationTypes.Id" class="ids" />

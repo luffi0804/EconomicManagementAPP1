@@ -10,7 +10,7 @@
 <div style="text-align: right">
 <a asp-action="Create" class="btn btn-secondary mb-3">Create categorie</a>
 </div>
-<table class="table">
+<table class="table table-info">
   <thead>
     <tr>
       <th>Name</th>
@@ -21,11 +21,11 @@
     @foreach (var categorie in Model) 
     {
     <tr>
-      <td>@categorie.Name</td>
+      <td class="table-info">@categorie.Name</td>
       <td>
         <div style="text-align: right">
           <input type="hidden" value="@categorie.Id" class="ids" />
-          <a class="btn btn-seondary" asp-action="Modify" asp-route-id="@categorie.Id">Modify</a>
+          <a class="btn btn-secondary" asp-action="Modify" asp-route-id="@categorie.Id">Modify</a>
           <a class="btn btn-secondary"asp-action="Delete" asp-route-id="@categorie.Id">Delete</a
           >
         </div>

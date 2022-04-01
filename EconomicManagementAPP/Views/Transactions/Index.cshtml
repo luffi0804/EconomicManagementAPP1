@@ -11,7 +11,7 @@
     <a asp-action="Create" class="btn btn-secondary mb-3">Create Transaction</a>
 </div>
 
-<table class="table">
+<table class="table table-info">
     <thead>
         <tr>
             <th>Transactions</th>
@@ -22,7 +22,7 @@
         @foreach (var transaction in Model)
         {
             <tr>
-                <td>@transaction.Description</td>
+                <td class="table-info">@transaction.Description</td>
                 <td>
                     <div style="text-align: right">
                         <input type="hidden" value="@transaction.Id" class="ids" />

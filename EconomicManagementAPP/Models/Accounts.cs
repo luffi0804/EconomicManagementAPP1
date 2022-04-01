@@ -12,6 +12,7 @@ namespace EconomicManagementAPP.Models
         [Remote(action: "VerificaryAccount", controller: "Accounts")]//Activamos la validacion se dispara peticion http hacia el back 
         public string Name { get; set; }
         [Required(ErrorMessage = "{0} is required")]
+        [Display(Name = "Account Type")]
         public int AccountTypeId { get; set; }
         [Required(ErrorMessage = "{0} is required")]
         public string Balance { get; set; }        
