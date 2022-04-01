@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Accounts>
+
+@{
+    ViewData["Title"] = "Accounts";
+}
+
+<h1 class="text-center">Account List</h1>
+<br />
+<br />
+<div style="text-align: right">
+  <a asp-action="Create" class="btn btn-secondary mb-3">Create account</a>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th style="text-align: right">Actions</th>
+    </tr>
+  </thead>
+  <tbody id="reordenable">
+    @foreach (var accounts in Model) 
+    {
+    <tr>
+      <td>@accounts.Name</td>
+      <td>
+        <div style="text-align: right">
+          <input type="hidden" value="@accounts.Id" class="ids" />
+          <a class="btn btn-secondary" asp-action="Modify" asp-route-id="@accounts.Id">Modify</a>
+          <a class="btn btn-secondary" asp-action="Delete" asp-route-id="@accounts.Id" >Delete</a>
+        </div>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>

@@ -1,0 +1,35 @@
+﻿@model Categories
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<div class="container">
+  <div style="margin-top: 90px" class="row">
+    <h1 class="text-center">Register Categorie</h1>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <form asp-action="Create">
+      <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"> </span>
+      </div>
+      <div class="mb-3">
+        <label asp-for="OperationTypeId" class="form-label"></label>
+        <input type="number" asp-for="OperationTypeId" class="form-control" />
+        <span asp-validation-for="OperationTypeId" class="text-danger"> </span>
+      </div>
+      <div class="mb-3">
+        <label asp-for="UserId" class="form-label"></label>
+        <input type="number" asp-for="UserId" class="form-control" />
+        <span asp-validation-for="UserId" class="text-danger"> </span>
+      </div>
+      <button type="submit" class="btn btn-secondary">Create</button>
+      <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+    </form>
+  </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

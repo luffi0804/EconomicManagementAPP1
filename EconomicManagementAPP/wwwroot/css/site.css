@@ -1,0 +1,33 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.btn-secondary {
+    background-color: #187D9F;
+    border-color: #187D9F;
+}
+
+    .btn-secondary:hover {
+        background-color: #325765;
+        border-color: #325765;
+    }
+
+    .btn-secondary:Active {
+        background-color: #187D9F;
+        border-color: #187D9F;
+    }

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<AccountTypes>
+
+@{
+    ViewData["Title"] = "Account Types";
+}
+
+<h1 class="text-center">Account Types List</h1>
+<br />
+<br />
+<div style="text-align: right">
+  <a asp-action="Create" class="btn btn-secondary mb-3">Create</a>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th style="text-align: right">Actions</th>
+    </tr>
+  </thead>
+  <tbody id="reordenable">
+    @foreach (var accountTypes in Model) 
+    {
+    <tr>
+      <td>@accountTypes.Name</td>
+      <td>
+        <div style="text-align: right">
+            <input type="hidden" value="@accountTypes.Id" class="ids" />
+            <a class="btn btn-secondary" asp-action="Modify" asp-route-id="@accountTypes.Id">Modify</a>
+            <a class="btn btn-secondary"  asp-action="Delete" asp-route-id="@accountTypes.Id" >Delete</a>
+        </div>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>

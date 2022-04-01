@@ -1,0 +1,25 @@
+﻿@model OperationTypes
+@{
+    ViewData["Title"] = "Operation types";
+}
+
+<div class="container">
+  <div style="margin-top: 90px" class="row">
+    <h1 class="text-center">Register operation type</h1>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <form asp-action="Create">
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label"></label>
+            <input type="text" asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"> </span>
+        </div>
+        <button type="submit" class="btn btn-secondary">Create</button>
+        <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+    </form>
+  </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}
