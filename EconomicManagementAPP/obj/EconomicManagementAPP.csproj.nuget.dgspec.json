@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main (1)\\EconomicManagementAPP-main\\EconomicManagementAPP\\EconomicManagementAPP.csproj": {}
+    "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main ESte es el trabajado\\EconomicManagementAPP-main\\EconomicManagementAPP\\EconomicManagementAPP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main (1)\\EconomicManagementAPP-main\\EconomicManagementAPP\\EconomicManagementAPP.csproj": {
+    "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main ESte es el trabajado\\EconomicManagementAPP-main\\EconomicManagementAPP\\EconomicManagementAPP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main (1)\\EconomicManagementAPP-main\\EconomicManagementAPP\\EconomicManagementAPP.csproj",
+        "projectUniqueName": "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main ESte es el trabajado\\EconomicManagementAPP-main\\EconomicManagementAPP\\EconomicManagementAPP.csproj",
         "projectName": "EconomicManagementAPP",
-        "projectPath": "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main (1)\\EconomicManagementAPP-main\\EconomicManagementAPP\\EconomicManagementAPP.csproj",
+        "projectPath": "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main ESte es el trabajado\\EconomicManagementAPP-main\\EconomicManagementAPP\\EconomicManagementAPP.csproj",
         "packagesPath": "C:\\Users\\lfarboledas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main (1)\\EconomicManagementAPP-main\\EconomicManagementAPP\\obj\\",
+        "outputPath": "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main ESte es el trabajado\\EconomicManagementAPP-main\\EconomicManagementAPP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lfarboledas\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DoHuU1EoBniv+lzz/9YrSaPpq3OynSQTqeNj+1v7pL3pIbvWlkXao+8BBVHzcmON7TwzSSe38Hsuh5tvfXrU8Q==",
+  "dgSpecHash": "ozXxXHkUUGdkGFopX+bYKR0IFLRocBwb4Um3XQSM19DO9AL7wqr2rbJxXOmfmK0VFyU/UpCLIYPW6IrkM8L0IA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main (1)\\EconomicManagementAPP-main\\EconomicManagementAPP\\EconomicManagementAPP.csproj",
+  "projectFilePath": "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main ESte es el trabajado\\EconomicManagementAPP-main\\EconomicManagementAPP\\EconomicManagementAPP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lfarboledas\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\lfarboledas\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",

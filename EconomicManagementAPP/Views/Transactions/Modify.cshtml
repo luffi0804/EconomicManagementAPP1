@@ -3,7 +3,7 @@
     ViewData["Title"] = "Transactions";
 }
 
-<h1>Modify Transaction: @Model.Description</h1>
+<h1>Modify Transaction @Model.Description</h1>
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 <form asp-action="Modify">
@@ -42,7 +42,7 @@
         <input type="number" asp-for="CategoryId" class="form-control" />
         <span asp-validation-for="CategoryId" class="text-danger"> </span>
     </div>
-    <button type="submit" class="btn btn-primary">Modidy</button>
+    <button type="submit" class="btn btn-secondary">Modidy</button>
     <a class="btn btn-secondary" asp-action="Index">Cancel</a>
 </form>
 

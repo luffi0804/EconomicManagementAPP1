@@ -4,7 +4,7 @@
     ViewData["Title"] = "Modify User";
 }
 
-<h1>Modify user: @Model.Email</h1>
+<h4>Modify user @Model.Email</h4>
 
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -25,9 +25,10 @@
         <input type="password" asp-for="Password" class="form-control" />
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
-
-    <button type="submit" class="btn btn-primary">Modify</button>
+    <div class="mb-3 col text-center">
+    <button type="submit" class="btn btn-secondary">Modify</button>
     <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+    </div>
 </form>
 
 @section Scripts {
