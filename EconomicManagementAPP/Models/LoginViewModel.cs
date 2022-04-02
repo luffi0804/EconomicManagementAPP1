@@ -2,6 +2,7 @@
 
 namespace EconomicManagementAPP.Models
 {
+    //Hacemos las validaciones requeridas
     public class LoginViewModel
     {
         [Required(ErrorMessage = "{0} is required")]

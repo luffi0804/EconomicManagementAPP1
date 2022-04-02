@@ -14,7 +14,7 @@ namespace EconomicManagementAPP.Controllers
             this.repositorieAccounts = repositorieAccounts;
         }
 
-        // Creamos index para ejecutar la interfaz
+        // Ejecuta la accion del index de account
         public async Task<IActionResult> Index()
         {            
             var accounts = await repositorieAccounts.getAccounts();
@@ -25,7 +25,9 @@ namespace EconomicManagementAPP.Controllers
             return View();
         }
 
+        
         [HttpPost]
+
         public async Task<IActionResult> Create(Accounts accounts)
         {
             if (!ModelState.IsValid)
@@ -39,19 +41,18 @@ namespace EconomicManagementAPP.Controllers
 
             if (accountExist)
             {
-                // AddModelError ya viene predefinido en .net
-                // nameOf es el tipo del campo
+
                 ModelState.AddModelError(nameof(accounts.Name),
                     $"The account {accounts.Name} already exist.");
 
                 return View(accounts);
             }
             await repositorieAccounts.Create(accounts);
-            // Redireccionamos a la lista
+
             return RedirectToAction("Index");
         }
 
-        // Hace que la validacion se active automaticamente desde el front
+        //Valida automaticamente desde el front
         [HttpGet]
         public async Task<IActionResult> VerificaryAccount(string Name)
         {           
@@ -59,7 +60,7 @@ namespace EconomicManagementAPP.Controllers
 
             if (accountExist)
             {
-                // permite acciones directas entre front y back
+               
                 return Json($"The account {Name} already exist");
             }
 
@@ -67,7 +68,7 @@ namespace EconomicManagementAPP.Controllers
         }
 
         //Actualizar
-        //Este retorna la vista tanto del modify
+        //Retorna la vista del modify
         [HttpGet]
         public async Task<ActionResult> Modify(int Id)
         {            
@@ -75,13 +76,13 @@ namespace EconomicManagementAPP.Controllers
 
             if (account is null)
             {
-                //Redireccio cuando esta vacio
+
                 return RedirectToAction("NotFound", "Home");
             }
 
             return View(account);
         }
-        //Este es el que modifica y retorna al index
+        //Ejecuta la accion del modify
         [HttpPost]
         public async Task<ActionResult> Modify(Accounts accounts)
         {           
@@ -92,10 +93,11 @@ namespace EconomicManagementAPP.Controllers
                 return RedirectToAction("NotFound", "Home");
             }
 
-            await repositorieAccounts.Modify(accounts);// el que llega
+            await repositorieAccounts.Modify(accounts);
             return RedirectToAction("Index");
         }
         // Eliminar
+        //Retorna la vista de Delete
         [HttpGet]
         public async Task<IActionResult> Delete(int Id)
         {            
@@ -108,6 +110,8 @@ namespace EconomicManagementAPP.Controllers
 
             return View(account);
         }
+
+        //Ejecuta la accion del delete
         [HttpPost]
         public async Task<IActionResult> DeleteAccount(int Id)
         {            

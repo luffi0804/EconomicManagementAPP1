@@ -6,13 +6,17 @@ namespace EconomicManagementAPP.Models
 {
     public class Categories
     {
+        //Hacemos las validaciones requeridas
         public int Id { get; set; }
+        
         [Required(ErrorMessage = "{0} is required")]
         [FirstCapitalLetter]
         [Remote(action: "VerificaryCategorie", controller: "Categories")]
         public string Name { get; set; }
+        
         [Required(ErrorMessage = "{0} is required")]
         public int OperationTypeId { get; set; }
+        
         [Required(ErrorMessage = "{0} is required")]
         public int UserId { get; set; }
     }

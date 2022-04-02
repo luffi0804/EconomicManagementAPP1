@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QUo99qky2GC0EDxyNJhJRHwDfDuuSaBV40AZUM+aEoE=",
+  "Hash": "lTZ48QOJKS/nvCTFaWHEMLJtyk0mc9GNVs/uYVHRwPI=",
   "Source": "EconomicManagementAPP",
   "BasePath": "_content/EconomicManagementAPP",
   "Mode": "Default",
@@ -100,6 +100,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\img1.png"
+    },
+    {
+      "Identity": "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main ESte es el trabajado\\EconomicManagementAPP-main\\EconomicManagementAPP\\wwwroot\\img\\img2.png",
+      "SourceId": "EconomicManagementAPP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main ESte es el trabajado\\EconomicManagementAPP-main\\EconomicManagementAPP\\wwwroot\\",
+      "BasePath": "_content/EconomicManagementAPP",
+      "RelativePath": "img/img2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\img2.png"
+    },
+    {
+      "Identity": "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main ESte es el trabajado\\EconomicManagementAPP-main\\EconomicManagementAPP\\wwwroot\\img\\img3.png",
+      "SourceId": "EconomicManagementAPP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main ESte es el trabajado\\EconomicManagementAPP-main\\EconomicManagementAPP\\wwwroot\\",
+      "BasePath": "_content/EconomicManagementAPP",
+      "RelativePath": "img/img3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\img3.png"
     },
     {
       "Identity": "C:\\Users\\lfarboledas\\Documents\\Siesa\\EconomicManagementAPP-main ESte es el trabajado\\EconomicManagementAPP-main\\EconomicManagementAPP\\wwwroot\\js\\site.js",

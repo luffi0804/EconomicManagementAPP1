@@ -9,13 +9,13 @@ namespace EconomicManagementAPP.Controllers
     {
         private readonly IRepositorieAccountTypes repositorieAccountTypes;
 
-        //Inicializamos l variable repositorieAccountTypes para despues inyectarle las funcionalidades de la interfaz
+       
         public AccountTypesController(IRepositorieAccountTypes repositorieAccountTypes)
         {
             this.repositorieAccountTypes = repositorieAccountTypes;
         }
 
-        // Creamos index para ejecutar la interfaz
+        // Ejecuta la accion index de AccountTypes
         public async Task<IActionResult> Index()
         {
             var userId = 1;

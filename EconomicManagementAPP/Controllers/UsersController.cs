@@ -21,7 +21,7 @@ namespace EconomicManagementAPP.Controllers
             return View();
         }
 
-
+        //Ejecuta la interfaz de LoginView Movil
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
@@ -43,8 +43,7 @@ namespace EconomicManagementAPP.Controllers
             }
         }
 
-        // Creamos index para ejecutar la interfaz
-        // No enviamos parametros por el getUser ya que lo traemos todo mediante la interfaz
+        // Ejecuta la interfaz
         public async Task<IActionResult> Index()
         {
 
@@ -56,7 +55,9 @@ namespace EconomicManagementAPP.Controllers
             return View();
         }
 
+
         [HttpPost]
+
         public async Task<IActionResult> Create(Users users)
         {
             if (!ModelState.IsValid)
@@ -65,25 +66,25 @@ namespace EconomicManagementAPP.Controllers
             }
 
 
-            // Validamos si el usuario ya existe mediante el email, no enviamos parametros predefinidos, pero si el primer email que tome
+            // Valida que el usuario existe mediante el email.
             var usersExist =
                await repositorieUsers.Exist(users.Email);
 
             if (usersExist)
             {
-                // Validamos la existencia del usuario mediante el email
+                
                 ModelState.AddModelError(nameof(users.Email),
                     $"The account {users.Email} already exist.");
 
                 return View(users);
             }
             await repositorieUsers.Create(users);
-            // Redireccionamos a la lista de usuarios
+           
             return RedirectToAction("Index");
         }
 
 
-        // Hace que la validacion se active automaticamente desde el front mediante el email
+        // Activa la validacion desde el front por medio de el email
         [HttpGet]
         public async Task<IActionResult> VerificaryUsers(string Email)
         {
@@ -98,8 +99,7 @@ namespace EconomicManagementAPP.Controllers
             return Json(true);
         }
 
-        //Actualizar
-        //Este retorna la vista tanto del modify
+        
         [HttpGet]
         public async Task<ActionResult> Modify(int Id)
         {
@@ -114,7 +114,7 @@ namespace EconomicManagementAPP.Controllers
 
             return View(user);
         }
-        //Este es el que modifica y retorna al index
+        //Modifica y retorna al index
         [HttpPost]
         public async Task<ActionResult> Modify(Users users)
         {
@@ -130,7 +130,7 @@ namespace EconomicManagementAPP.Controllers
                 return View(users);
             }
 
-            await repositorieUsers.Modify(users);// el que llega
+            await repositorieUsers.Modify(users);
             return RedirectToAction("Index");
         }
 
