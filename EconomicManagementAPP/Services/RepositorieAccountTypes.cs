@@ -13,22 +13,22 @@ namespace EconomicManagementAPP.Services
         {
             connectionString = configuration.GetConnectionString("DefaultConnection");
         }
-        // El async va acompañado de Task
+        
         public async Task Create(AccountTypes accountTypes)
         {
             using var connection = new SqlConnection(connectionString);
-            // Requiere el await - tambien requiere el Async al final de la query
+           
             var id = await connection.QuerySingleAsync<int>($@"INSERT INTO AccountTypes 
                                                 (Name, UserId, OrderAccount) 
                                                 VALUES (@Name, @UserId, @OrderAccount); SELECT SCOPE_IDENTITY();", accountTypes);
             accountTypes.Id = id;
         }
 
-        //Cuando retorna un tipo de dato se debe poner en el Task Task<bool>
+       
         public async Task<bool> Exist(string Name, int UserId)
         {
             using var connection = new SqlConnection(connectionString);
-            // El select 1 es traer lo primero que encuentre y el default es 0
+            
             var exist = await connection.QueryFirstOrDefaultAsync<int>(
                                     @"SELECT 1
                                     FROM AccountTypes
@@ -55,7 +55,7 @@ namespace EconomicManagementAPP.Services
                                             WHERE Id = @Id", accountTypes);
         }
 
-        //Para actualizar se necesita obtener el tipo de cuenta por el id
+        //Para actualizar se obtiene el tipo de cuenta por el id
         public async Task<AccountTypes> getAccountById(int id, int userId)
         {
             using var connection = new SqlConnection(connectionString);
