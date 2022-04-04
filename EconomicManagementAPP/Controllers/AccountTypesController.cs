@@ -34,7 +34,7 @@ namespace EconomicManagementAPP.Controllers
                 return View(accountTypes);
             }
 
-            accountTypes.UserId = 1;
+            accountTypes.UserId = id;
             accountTypes.OrderAccount = id;
 
             // Validamos si ya existe antes de registrar
@@ -55,9 +55,9 @@ namespace EconomicManagementAPP.Controllers
 
         // Hace que la validacion se active automaticamente desde el front
         [HttpGet]
-        public async Task<IActionResult> VerificaryAccountType(string Name)
+        public async Task<IActionResult> VerificaryAccountType(string Name, int id)
         {
-            var UserId = 1;
+            var UserId = id;
             var accountTypeExist = await repositorieAccountTypes.Exist(Name, UserId);
 
             if (accountTypeExist)
@@ -74,7 +74,7 @@ namespace EconomicManagementAPP.Controllers
         [HttpGet]
         public async Task<ActionResult> Modify(int id )
         {
-            var userId = 1;
+            var userId = id;
             var accountType = await repositorieAccountTypes.getAccountById(id, userId);
 
             if (accountType is null)
@@ -87,9 +87,9 @@ namespace EconomicManagementAPP.Controllers
         }
         //Modifica y retorna al index
         [HttpPost]
-        public async Task<ActionResult> Modify(AccountTypes accountTypes)
+        public async Task<ActionResult> Modify(AccountTypes accountTypes, int Id)
         {
-            var userId = 1;
+            var userId = Id;
             var accountType = await repositorieAccountTypes.getAccountById(accountTypes.Id, userId);
 
             if (accountType is null)
@@ -104,7 +104,7 @@ namespace EconomicManagementAPP.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            var userId = 1;
+            var userId = id;
             var account = await repositorieAccountTypes.getAccountById(id, userId);
 
             if (account is null)
@@ -119,7 +119,7 @@ namespace EconomicManagementAPP.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteAccount(int id)
         {
-            var userId = 1;
+            var userId = id;
             var account = await repositorieAccountTypes.getAccountById(id, userId);
 
             if (account is null)

@@ -11,6 +11,6 @@
     "\\EconomicManagementAPP\\Views\\Home",
     "\\EconomicManagementAPP\\Views\\Transactions"
   ],
-  "SelectedNode": "\\EconomicManagementAPP\\Controllers\\AccountTypesController.cs",
+  "SelectedNode": "\\EconomicManagementAPP\\Views\\Home\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }
