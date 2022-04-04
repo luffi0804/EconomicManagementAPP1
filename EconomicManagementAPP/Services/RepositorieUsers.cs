@@ -22,7 +22,6 @@ namespace EconomicManagementAPP.Services
                                                     "SELECT * FROM Users WHERE Email = @Email and Password = @Password", new { Email, Password });
         }
 
-        // El async va acompañado de Task para crear el usuario
         public async Task Create(Users users)
         {
             using var connection = new SqlConnection(connectionString);
@@ -75,7 +74,7 @@ namespace EconomicManagementAPP.Services
                                                                 new { Id });
         }
 
-        //Eliminar
+        //Delete
         public async Task Delete(int Id)
         {
             using var connection = new SqlConnection(connectionString);

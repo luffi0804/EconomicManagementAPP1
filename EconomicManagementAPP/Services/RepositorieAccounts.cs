@@ -15,22 +15,23 @@ namespace EconomicManagementAPP.Services
         {
             connectionString = configuration.GetConnectionString("DefaultConnection");
         }
-        // El async va acompañado de Task
+
+        //creamos la cuenta
         public async Task Create(Accounts accounts)
         {
             using var connection = new SqlConnection(connectionString);
-            // Requiere el await - tambien requiere el Async al final de la query
+
             var id = await connection.QuerySingleAsync<int>($@"INSERT INTO Accounts 
                                                 (Name, AccountTypeId, Balance, Description) 
                                                 VALUES (@Name, @AccountTypeId, @Balance, @Description); SELECT SCOPE_IDENTITY();", accounts);
             accounts.Id = id;
         }
 
-        //Cuando retorna un tipo de dato se debe poner en el Task Task<bool>
+        //Verificamos si existe
         public async Task<bool> Exist(string Name)
         {
             using var connection = new SqlConnection(connectionString);
-            // El select 1 es traer lo primero que encuentre y el default es 0
+
             var exist = await connection.QueryFirstOrDefaultAsync<int>(
                                     @"SELECT 1
                                     FROM Accounts
@@ -39,7 +40,7 @@ namespace EconomicManagementAPP.Services
             return exist == 1;
         }
 
-        // Obtenemos las cuentas del usuario
+        //Devuelve la lista
         public async Task<IEnumerable<Accounts>> getAccounts()
         {
             using var connection = new SqlConnection(connectionString);
@@ -69,7 +70,7 @@ namespace EconomicManagementAPP.Services
                                                                 new { Id });
         }
 
-        //Eliminar
+        //Delete
         public async Task Delete(int Id)
         {
             using var connection = new SqlConnection(connectionString);

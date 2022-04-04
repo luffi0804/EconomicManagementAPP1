@@ -9,13 +9,13 @@ namespace EconomicManagementAPP.Controllers
     {
         private readonly IRepositorieCategories repositorieCategories;
 
-        //Inicializamos l variable repositorieAccountTypes para despues inyectarle las funcionalidades de la interfaz
+       
         public CategoriesController(IRepositorieCategories repositorieCategories)
         {
             this.repositorieCategories = repositorieCategories;
         }
 
-        // Creamos index para ejecutar la interfaz
+        // Ejecuta la accion del index de categories
         public async Task<IActionResult> Index()
         {
             var categories = await repositorieCategories.getCategories();
@@ -40,15 +40,14 @@ namespace EconomicManagementAPP.Controllers
 
             if (categoriesExist)
             {
-                // AddModelError ya viene predefinido en .net
-                // nameOf es el tipo del campo
+
                 ModelState.AddModelError(nameof(categories.Name),
                     $"The categorie {categories.Name} already exist.");
 
                 return View(categories);
             }
             await repositorieCategories.Create(categories);
-            // Redireccionamos a la lista
+
             return RedirectToAction("Index");
         }
 
@@ -60,15 +59,15 @@ namespace EconomicManagementAPP.Controllers
 
             if (categoriesExist)
             {
-                // permite acciones directas entre front y back
+
                 return Json($"The categories {Name} already exist");
             }
 
             return Json(true);
         }
 
-        //Actualizar
-        //Este retorna la vista tanto del modify
+
+        //Retorna la vista tanto del modify
         [HttpGet]
         public async Task<ActionResult> Modify(int Id)
         {
@@ -76,13 +75,13 @@ namespace EconomicManagementAPP.Controllers
 
             if (categorie is null)
             {
-                //Redireccio cuando esta vacio
+
                 return RedirectToAction("NotFound", "Home");
             }
 
             return View(categorie);
         }
-        //Este es el que modifica y retorna al index
+        //Modifica y retorna al index
         [HttpPost]
         public async Task<ActionResult> Modify(Categories categories)
         {
@@ -93,10 +92,11 @@ namespace EconomicManagementAPP.Controllers
                 return RedirectToAction("NotFound", "Home");
             }
 
-            await repositorieCategories.Modify(categories);// el que llega
+            await repositorieCategories.Modify(categories);
             return RedirectToAction("Index");
         }
-        // Eliminar
+
+        // Ejecuta la interfaz del delete
         [HttpGet]
         public async Task<IActionResult> Delete(int Id)
         {
@@ -109,6 +109,8 @@ namespace EconomicManagementAPP.Controllers
 
             return View(categorie);
         }
+
+        // Delete
         [HttpPost]
         public async Task<IActionResult> DeleteCategories(int Id)
         {

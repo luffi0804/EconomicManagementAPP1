@@ -9,13 +9,12 @@ namespace EconomicManagementAPP.Controllers
     {
         private readonly IRepositorieOperationTypes repositorieOperationTypes;
 
-        //Inicializamos l variable repositorieAccountTypes para despues inyectarle las funcionalidades de la interfaz
         public OperationTypesController(IRepositorieOperationTypes repositorieOperationTypes)
         {
             this.repositorieOperationTypes = repositorieOperationTypes;
         }
 
-        // Creamos index para ejecutar la interfaz
+        // Ejecutar la interfaz de OperationTypes
         public async Task<IActionResult> Index()
         {
             var operationTypes = await repositorieOperationTypes.getOperationTypes();
@@ -41,8 +40,7 @@ namespace EconomicManagementAPP.Controllers
 
             if (operationTypeExist)
             {
-                // AddModelError ya viene predefinido en .net
-                // nameOf es el tipo del campo
+
                 ModelState.AddModelError(nameof(operationTypes.Description),
                     $"The operation types {operationTypes.Description} already exist.");
 
@@ -50,7 +48,7 @@ namespace EconomicManagementAPP.Controllers
             }
 
             await repositorieOperationTypes.Create(operationTypes);
-            // Redireccionamos a la lista
+
             return RedirectToAction("Index");
         }
 
@@ -71,12 +69,7 @@ namespace EconomicManagementAPP.Controllers
         }
 
 
-
-
-
-
-        //Actualizar
-        //Este retorna la vista tanto del modify
+        //Retorna la vista tanto del modify
         [HttpGet]
         public async Task<ActionResult> Modify(int Id)
         {
@@ -84,13 +77,14 @@ namespace EconomicManagementAPP.Controllers
 
             if (operationType is null)
             {
-                //Redireccio cuando esta vacio
+
                 return RedirectToAction("NotFound", "Home");
             }
 
             return View(operationType);
         }
-        //Este es el que modifica y retorna al index
+
+        //Modify
         [HttpPost]
         public async Task<ActionResult> Modify(OperationTypes operationTypes)
         {
@@ -101,10 +95,11 @@ namespace EconomicManagementAPP.Controllers
                 return RedirectToAction("NotFound", "Home");
             }
 
-            await repositorieOperationTypes.Modify(operationTypes);// el que llega
+            await repositorieOperationTypes.Modify(operationTypes);
             return RedirectToAction("Index");
         }
-        // Eliminar
+
+        // Retorna la vista de Delete
         [HttpGet]
         public async Task<IActionResult> Delete(int Id)
         {
@@ -117,6 +112,8 @@ namespace EconomicManagementAPP.Controllers
 
             return View(operation);
         }
+
+        //Delete
         [HttpPost]
         public async Task<IActionResult> DeleteOperation(int Id)
         {

@@ -14,11 +14,11 @@ namespace EconomicManagementAPP.Services
         {
             connectionString = configuration.GetConnectionString("DefaultConnection");
         }
-        // El async va acompañado de Task
+
         public async Task Create(Transactions transactions)
         {
             using var connection = new SqlConnection(connectionString);
-            // Requiere el await - tambien requiere el Async al final de la query
+
             var id = await connection.QuerySingleAsync<int>($@"INSERT INTO Transactions 
                                                 (UserId, TransactionDate, Total, OperationTypeId, Description, AccountId, CategoryId) 
                                                 VALUES (@UserId, @TransactionDate, @Total, @OperationTypeId, @Description, @AccountId, @CategoryId); SELECT SCOPE_IDENTITY();", transactions);
@@ -33,7 +33,6 @@ namespace EconomicManagementAPP.Services
             return await connection.QueryAsync<Transactions>(@"SELECT Id, TransactionDate, Total, OperationTypeId, Description, AccountId, CategoryId
                                                             FROM Transactions");
         }
-
 
 
         // Actualizar
@@ -62,7 +61,7 @@ namespace EconomicManagementAPP.Services
                                                                 new { Id });
         }
 
-        //Eliminar
+        //Delete
         public async Task Delete(int Id)
         {
             using var connection = new SqlConnection(connectionString);

@@ -96,7 +96,7 @@ namespace EconomicManagementAPP.Controllers
             await repositorieAccounts.Modify(accounts);
             return RedirectToAction("Index");
         }
-        // Eliminar
+        
         //Retorna la vista de Delete
         [HttpGet]
         public async Task<IActionResult> Delete(int Id)
@@ -111,7 +111,7 @@ namespace EconomicManagementAPP.Controllers
             return View(account);
         }
 
-        //Ejecuta la accion del delete
+        //Delete
         [HttpPost]
         public async Task<IActionResult> DeleteAccount(int Id)
         {            

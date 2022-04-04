@@ -14,11 +14,10 @@ namespace EconomicManagementAPP.Services
         {
             connectionString = configuration.GetConnectionString("DefaultConnection");
         }
-        // El async va acompañado de Task
         public async Task Create(OperationTypes operationTypes)
         {
             using var connection = new SqlConnection(connectionString);
-            // Requiere el await - tambien requiere el Async al final de la query
+
             var id = await connection.QuerySingleAsync<int>($@"INSERT INTO OperationTypes 
                                                 (Description) 
                                                 VALUES (@Description); SELECT SCOPE_IDENTITY();", operationTypes);
@@ -26,7 +25,6 @@ namespace EconomicManagementAPP.Services
         }
         
 
-        //Cuando retorna un tipo de dato se debe poner en el Task Task<bool>
         public async Task<bool> Exist(string Description)
         {
             using var connection = new SqlConnection(connectionString);
@@ -68,7 +66,7 @@ namespace EconomicManagementAPP.Services
                                                                 new { Id });
         }
 
-        //Eliminar
+        //Delete
         public async Task Delete(int Id)
         {
             using var connection = new SqlConnection(connectionString);

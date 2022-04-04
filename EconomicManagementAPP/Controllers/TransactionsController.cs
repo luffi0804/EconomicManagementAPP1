@@ -16,7 +16,7 @@ namespace EconomicManagementAPP.Controllers
             this.repositorieTransactions = repositorieTransactions;
         }
 
-        // Creamos index para ejecutar la interfaz
+        // Ejecutar la interfaz de transaction
         public async Task<IActionResult> Index()
         {
             var transactions = await repositorieTransactions.getTransactions();
@@ -36,7 +36,7 @@ namespace EconomicManagementAPP.Controllers
             }
             
             await repositorieTransactions.Create(transactions);
-            // Redireccionamos a la lista
+           
             return RedirectToAction("Index");
         }        
 
@@ -44,7 +44,7 @@ namespace EconomicManagementAPP.Controllers
 
 
         //Actualizar
-        //Este retorna la vista tanto del modify
+        //Retorna la vista del modify
         [HttpGet]
         public async Task<ActionResult> Modify(int Id)
         {
@@ -58,7 +58,7 @@ namespace EconomicManagementAPP.Controllers
 
             return View(transaction);
         }
-        //Este es el que modifica y retorna al index
+        //Modifica y retorna al index
         [HttpPost]
         public async Task<ActionResult> Modify(Transactions transactions)
         {
@@ -69,10 +69,10 @@ namespace EconomicManagementAPP.Controllers
                 return RedirectToAction("NotFound", "Home");
             }
 
-            await repositorieTransactions.Modify(transactions);// el que llega
+            await repositorieTransactions.Modify(transactions);
             return RedirectToAction("Index");
         }
-        // Eliminar
+        // Retorna la interfaz de delete
         [HttpGet]
         public async Task<IActionResult> Delete(int Id)
         {
@@ -85,6 +85,8 @@ namespace EconomicManagementAPP.Controllers
 
             return View(transaction);
         }
+
+        //Delete
         [HttpPost]
         public async Task<IActionResult> DeleteTransaction(int Id)
         {

@@ -1,6 +1,5 @@
 ﻿using EconomicManagementAPP.IRepositories;
 using EconomicManagementAPP.Models;
-using EconomicManagementAPP.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EconomicManagementAPP.Controllers
@@ -16,9 +15,9 @@ namespace EconomicManagementAPP.Controllers
         }
 
         // Ejecuta la accion index de accountTypes
-        public async Task<IActionResult> Index(int id)
+        public async Task<IActionResult> Index()
         {
-            var userId = id;
+            var userId = 1;
             var accountTypes = await repositorieAccountTypes.getAccounts(userId);
             return View(accountTypes);
         }
@@ -35,7 +34,7 @@ namespace EconomicManagementAPP.Controllers
                 return View(accountTypes);
             }
 
-            accountTypes.UserId = id;
+            accountTypes.UserId = 1;
             accountTypes.OrderAccount = id;
 
             // Validamos si ya existe antes de registrar
@@ -44,8 +43,6 @@ namespace EconomicManagementAPP.Controllers
 
             if (accountTypeExist)
             {
-                // AddModelError ya viene predefinido en .net
-                // nameOf es el tipo del campo
                 ModelState.AddModelError(nameof(accountTypes.Name),
                     $"The account {accountTypes.Name} already exist.");
 
@@ -58,14 +55,14 @@ namespace EconomicManagementAPP.Controllers
 
         // Hace que la validacion se active automaticamente desde el front
         [HttpGet]
-        public async Task<IActionResult> VerificaryAccountType(string Name, int id)
+        public async Task<IActionResult> VerificaryAccountType(string Name)
         {
-            var UserId = id;
+            var UserId = 1;
             var accountTypeExist = await repositorieAccountTypes.Exist(Name, UserId);
 
             if (accountTypeExist)
             {
-                // permite acciones directas entre front y back
+          
                 return Json($"The account {Name} already exist");
             }
 
@@ -73,26 +70,26 @@ namespace EconomicManagementAPP.Controllers
         }
 
         //Actualizar
-        //Este retorna la vista tanto del modify
+        //Retorna la vista del modify
         [HttpGet]
         public async Task<ActionResult> Modify(int id )
         {
-            var userId = id;
+            var userId = 1;
             var accountType = await repositorieAccountTypes.getAccountById(id, userId);
 
             if (accountType is null)
             { 
-                //Redireccio cuando esta vacio
+               
                 return RedirectToAction("NotFound", "Home");
             }
 
             return View(accountType);
         }
-        //Este es el que modifica y retorna al index
+        //Modifica y retorna al index
         [HttpPost]
-        public async Task<ActionResult> Modify(AccountTypes accountTypes, int id)
+        public async Task<ActionResult> Modify(AccountTypes accountTypes)
         {
-            var userId = id;
+            var userId = 1;
             var accountType = await repositorieAccountTypes.getAccountById(accountTypes.Id, userId);
 
             if (accountType is null)
@@ -103,11 +100,11 @@ namespace EconomicManagementAPP.Controllers
             await repositorieAccountTypes.Modify(accountTypes);
             return RedirectToAction("Index");
         }
-        // Eliminar
+        // Retorna la interfaz de delete
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            var userId = id;
+            var userId = 1;
             var account = await repositorieAccountTypes.getAccountById(id, userId);
 
             if (account is null)
@@ -117,10 +114,12 @@ namespace EconomicManagementAPP.Controllers
 
             return View(account);
         }
+
+        //Delete
         [HttpPost]
         public async Task<IActionResult> DeleteAccount(int id)
         {
-            var userId = id;
+            var userId = 1;
             var account = await repositorieAccountTypes.getAccountById(id, userId);
 
             if (account is null)

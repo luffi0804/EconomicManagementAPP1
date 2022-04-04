@@ -9,7 +9,6 @@ namespace EconomicManagementAPP.Controllers
     {
         private readonly IRepositorieUsers repositorieUsers;
 
-        //Inicializamos  repositorieUsers para despues inyectarle las funcionalidades de la interfaz
         public UsersController(IRepositorieUsers repositorieUsers)
         {
             this.repositorieUsers = repositorieUsers;
@@ -21,7 +20,7 @@ namespace EconomicManagementAPP.Controllers
             return View();
         }
 
-        //Ejecuta la interfaz de LoginView Movil
+        //Ejecuta la interfaz de LoginViewModel
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
@@ -43,7 +42,6 @@ namespace EconomicManagementAPP.Controllers
             }
         }
 
-        // Ejecuta la interfaz
         public async Task<IActionResult> Index()
         {
 
@@ -54,7 +52,8 @@ namespace EconomicManagementAPP.Controllers
         {
             return View();
         }
-
+        
+        //Create
 
         [HttpPost]
 
@@ -62,7 +61,7 @@ namespace EconomicManagementAPP.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(users);
+                return RedirectToAction("Index");
             }
 
 
@@ -99,7 +98,7 @@ namespace EconomicManagementAPP.Controllers
             return Json(true);
         }
 
-        
+        //Ejecuta la interfaz de modify
         [HttpGet]
         public async Task<ActionResult> Modify(int Id)
         {
@@ -108,7 +107,7 @@ namespace EconomicManagementAPP.Controllers
 
             if (user is null)
             {
-                //Redireccio cuando esta vacio
+
                 return RedirectToAction("NotFound", "Home");
             }
 
@@ -135,7 +134,7 @@ namespace EconomicManagementAPP.Controllers
         }
 
 
-        // Eliminar
+        // Retorna la interfaz de delete
         [HttpGet]
         public async Task<IActionResult> Delete(int Id)
         {
@@ -148,6 +147,8 @@ namespace EconomicManagementAPP.Controllers
 
             return View(user);
         }
+
+        //Delete
         [HttpPost]
         public async Task<IActionResult> DeleteUser(int Id)
         {

@@ -52,7 +52,7 @@ namespace EconomicManagementAPP.Services
             using var connection = new SqlConnection(connectionString);
             await connection.ExecuteAsync(@"UPDATE AccountTypes
                                             SET Name = @Name
-                                            WHERE Id = @Id", accountTypes);
+                                            WHERE Id = @Id ", accountTypes);
         }
 
         //Para actualizar se obtiene el tipo de cuenta por el id
@@ -66,7 +66,7 @@ namespace EconomicManagementAPP.Services
                                                                 new { id, userId });
         }
 
-        //Eliminar
+        //Delete
         public async Task Delete(int id)
         {
             using var connection = new SqlConnection(connectionString);
