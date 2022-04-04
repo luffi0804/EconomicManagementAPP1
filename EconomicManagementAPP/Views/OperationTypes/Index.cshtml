@@ -21,8 +21,9 @@
     <tbody id="reordenable">
         @foreach (var operationTypes in Model)
         {
-            <tr>
-                <td class="table-info">@operationTypes.Description</td>
+            <tr class="table-info">
+                <td>@operationTypes.Description</td>
+
                 <td>
                     <div style="text-align: right">
                         <input type="hidden" value="@operationTypes.Id" class="ids" />

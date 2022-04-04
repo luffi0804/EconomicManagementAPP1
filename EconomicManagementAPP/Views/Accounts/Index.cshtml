@@ -15,14 +15,17 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th style="text-align: right">Actions</th>
-    </tr>
+       <th>Balance</th>
+       <th>Description</th>
+       <th style="text-align: right">Actions</th>
   </thead>
   <tbody id="reordenable">
     @foreach (var accounts in Model) 
     {
-    <tr>
-      <td class="table-info">@accounts.Name</td>
+    <tr class="table-info">
+      <td>@accounts.Name</td>
+      <td>@accounts.Balance</td>
+      <td>@accounts.Description</td>
       <td>
         <div style="text-align: right">
           <input type="hidden" value="@accounts.Id" class="ids" />
